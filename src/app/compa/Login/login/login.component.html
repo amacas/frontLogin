@@ -1,13 +1,13 @@
 
 <div class="login">
-  <form class="custom-form" method="post">
+  <div class="custom-form"  >
     <h1>
       login
     </h1>
-    <input type="text"   name="username" placeholder="username" required="required"/>
-    <input type="password"  name="password" placeholder="Password" required="required" />
-    <button type="submit" class="btn btn-registro btn-primary">
+    <input type="text"    placeholder="correo" required="required" [(ngModel)]="usuario.correo"/>
+    <input type="password"   placeholder="Password" required="required"  [(ngModel)]="usuario.clave"/>
+    <button type="button" class="btn btn-registro btn-primary" (click)="login()">
       Login
     </button>
-  </form>
+  </div>
 </div>
