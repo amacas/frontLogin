@@ -1,17 +1,22 @@
-
-<div class="login">
-  <form class="custom-form" method="post">
+<div class="register">
+  <div class="custom-form"  >
     <h1>
       Register
     </h1>
-    <input type="text"   name="name" placeholder="name" required="required"/>
-    <input type="text"  name="City" placeholder="City" required="required" />
-    <input type="text"   name="gener" placeholder="gener" required="required"/>
-    <input type="password"  name="password" placeholder="password" required="required" />
-    <button type="submit" class="btn btn-registro btn-primary">
-      Login
+    <input type="text"   placeholder="nombre" required="required"  [(ngModel)]="usuario.nombre" />
+    <input type="text"   placeholder="apellido" required="required"  [(ngModel)]="usuario.apellido"   />
+    <input type="text"    placeholder="usuario" required="required" [(ngModel)]="usuario.usuario"     />
+    <input type="text"   placeholder="gender" required="required"  [(ngModel)]="usuario.gender" />
+    <input type="text"   placeholder="telefono" required="required"     [(ngModel)]="usuario.telefono"  />
+    <input type="text"    placeholder="email" required="required"     [(ngModel)]="usuario.correo"   />
+    <input type="password"   placeholder="password" required="required"  [(ngModel)]="usuario.clave"     />
+    <input type="text"   placeholder="zip codigo" required="required"   [(ngModel)]="usuario.zipCodigo"    />
+    <input type="text"   placeholder="ciudad " required="required"  [(ngModel)]="usuario.ciudad"    />
+    <input type="text"   placeholder="direccion" required="required"  [(ngModel)]="usuario.direccion"     />
+
+
+    <button type="button" class="btn btn-registro btn-primary" (click)="registro()">
+      Register
     </button>
-  </form>
+  </div>
 </div>
-
-

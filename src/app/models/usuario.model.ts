@@ -4,5 +4,14 @@ export class Usuario{
   correo:string='';
   clave:string='';
   estado:string='';
+  nombre:string='';
+  apellido:string='';
+  gender:string='';
+  telefono:string='';
+  zipCodigo:string='';
+  ciudad:string='';
+  direccion:string='';
 
 }
+
+
