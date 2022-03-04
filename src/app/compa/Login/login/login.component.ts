@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +23,6 @@ export class LoginComponent implements OnInit {
 
   }
 
-
-
   ngOnInit(): void {
     this.getUsuarios();
   }
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
   getUsuarios() {
     this._usuarioService.getUsuarios().subscribe(res => {
       this.listaUsuarios = res;
-      console.log(this.listaUsuarios);
+      // console.log(this.listaUsuarios);
     })
   }
 
@@ -42,8 +41,7 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.usuario.correo.trim().length > 0 && this.usuario.clave.trim().length > 0) {
       this._usuarioService.login(this.usuario).subscribe(res => {
-        console.log(res);
-
+        // console.log(res);
       })
 
     } else {
@@ -51,4 +49,7 @@ export class LoginComponent implements OnInit {
     }
 
   }
+
+
+
 }

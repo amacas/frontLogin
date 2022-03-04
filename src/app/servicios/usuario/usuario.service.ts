@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Genero } from 'src/app/models/genero.model';
+import { Respuesta } from 'src/app/models/respuesta';
 import { Usuario } from 'src/app/models/usuario.model';
 import { environment } from 'src/environments/environment';
 
@@ -11,7 +13,7 @@ export class UsuarioService {
   private url = environment.URL;
 
   constructor(
-    public http: HttpClient
+    private http: HttpClient
   ) { }
 
   getUsuarios() {
@@ -22,4 +24,12 @@ export class UsuarioService {
   {
     return this.http.post(this.url + 'login', data);
   }
+
+  registro( data:any)
+  {
+    return this.http.post<Respuesta>(this.url + 'register', data);
+  }
+
+
+
 }

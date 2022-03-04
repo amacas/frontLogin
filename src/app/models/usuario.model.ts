@@ -4,13 +4,16 @@ export class Usuario{
   correo:string='';
   clave:string='';
   estado:string='';
-  nombre:string='';
+  name:string='';
   apellido:string='';
   gender:string='';
   telefono:string='';
-  zipCodigo:string='';
+  zipCode:string='';
   ciudad:string='';
   direccion:string='';
+  provincia_id:any;
+  genero_id:any;
+
 
 }
 
