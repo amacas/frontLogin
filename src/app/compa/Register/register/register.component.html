@@ -9,10 +9,10 @@
     <!-- <input type="text"   placeholder="gender" required="required"  [(ngModel)]="usuario.gender" /> -->
 
     <label for="">Gender: </label>
-      <select id="" class="form-control" name="genero_id" >
+      <select id="" class="form-control" name="genero_id"  [(ngModel)]="usuario.genero_id">
         <option value="0">Select Genero</option>
-        <option *ngFor="let p of genero " [value]="p.id">
-          {{ p.provincia }}
+        <option *ngFor="let p of generos " [value]="p.id">
+          {{ p.genero }}
         </option>
       </select>
 
@@ -23,7 +23,7 @@
     <input type="text"   placeholder="ciudad " required="required"  [(ngModel)]="usuario.ciudad"    />
 
     <label for="">Provincia: </label>
-      <select id="" class="form-control" name="provincia_id" >
+      <select id="" class="form-control" name="provincia_id" [(ngModel)]="usuario.provincia_id" >
         <option value="0">Select provincia</option>
         <option *ngFor="let p of provincias " [value]="p.id">
           {{ p.provincia }}

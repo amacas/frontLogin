@@ -9,9 +9,11 @@
     <h1>
       login
     </h1>
-    <input type="text"    placeholder="correo" required="required" [(ngModel)]="usuario.correo"/>
+    <input type="text"    placeholder="correo" required="required" [(ngModel)]="usuario.correo" />
+
     <input type="password"   placeholder="Password" required="required"  [(ngModel)]="usuario.clave"/>
-    <button type="button" class="btn btn-registro btn-primary" (click)="login()">
+
+    <button type="button" class="btn btn-registro btn-primary" (click)="login()" routerLink="ingreso" >
       Login
     </button>
   </div>

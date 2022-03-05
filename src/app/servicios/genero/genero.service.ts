@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Genero } from 'src/app/models/genero.model';
+import { Respuesta } from 'src/app/models/respuesta';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,8 +16,8 @@ export class GeneroService {
     private http: HttpClient
   ) { }
 
-  geGenero() {
-    return this.http.get<Genero>(this.url + 'genero');
+  getGeneros() {
+    return this.http.get<Respuesta>(this.url + 'genero');
   }
 
 

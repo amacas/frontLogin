@@ -6,15 +6,12 @@ export class Usuario{
   estado:string='';
   name:string='';
   apellido:string='';
-  gender:string='';
   telefono:string='';
   zipCode:string='';
   ciudad:string='';
   direccion:string='';
   provincia_id:any;
   genero_id:any;
-
-
 }
 
 

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Provincia } from 'src/app/models/provincia.model';
+import { Genero } from 'src/app/models/genero.model';
 import { Respuesta } from 'src/app/models/respuesta';
 import { Usuario } from 'src/app/models/usuario.model';
+import { GeneroService } from 'src/app/servicios/genero/genero.service';
 import { ProvinciaService } from 'src/app/servicios/provincia/provincia.service';
 import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 
@@ -16,6 +18,7 @@ export class RegisterComponent implements OnInit {
 
   public usuario: Usuario;
   public provincias:Array<Provincia>=[];
+  public generos:Array<Genero>=[];
 
 
   constructor(
@@ -35,8 +38,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //consumir el endponit
+    //2 consumir el endponit
     this.provincia();
+    this.genero();
 
   }
 
@@ -60,9 +64,6 @@ export class RegisterComponent implements OnInit {
       } else
       if (this.usuario.telefono.trim().length == 0) {
         alert('Ingrese un telefono: ');
-      } else
-      if (this.usuario.gender.trim().length == 0) {
-        alert('Ingrese un gender: ');
       } else
       if (this.usuario.zipCode.trim().length == 0) {
         alert('Ingrese un Codigo de zipCode: ');
@@ -96,12 +97,12 @@ export class RegisterComponent implements OnInit {
     this.usuario.estado = '';
     this.usuario.name = '';
     this.usuario.apellido = '';
-    this.usuario.gender = '';
     this.usuario.telefono = '';
     this.usuario.zipCode = '';
     this.usuario.ciudad = '';
     this.usuario.direccion = '';
     this.usuario.provincia_id = '';
+    this.usuario.genero_id = '';
   }
 
   provincia() {
@@ -120,18 +121,19 @@ export class RegisterComponent implements OnInit {
   }
 
   genero() {
-    this._genero_servicio.getProvincias()
+    this._genero_servicio.getGeneros()
     .subscribe((res) => {
 
       console.log(res);
       if (res.status) {
-        this.provincias=res.data;
-        console.log(this.provincias);
+        this.generos=res.data;
+        console.log(this.generos);
       } else {
 
       }
     }
     );
+
 
 
   }
