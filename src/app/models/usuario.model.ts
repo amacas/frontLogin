@@ -12,6 +12,7 @@ export class Usuario{
   direccion:string='';
   provincia_id:any;
   genero_id:any;
+  rol_id:number=0;
 }
 
 

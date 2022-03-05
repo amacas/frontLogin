@@ -6,6 +6,8 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { GeneroService } from 'src/app/servicios/genero/genero.service';
 import { ProvinciaService } from 'src/app/servicios/provincia/provincia.service';
 import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
+import { Rol } from 'src/app/models/rol.model';
+import { GeneralService } from 'src/app/servicios/general/general.service';
 
 @Component({
   selector: 'app-register',
@@ -14,33 +16,31 @@ import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 })
 export class RegisterComponent implements OnInit {
 
-
-
   public usuario: Usuario;
   public provincias:Array<Provincia>=[];
   public generos:Array<Genero>=[];
-
+  public roles:Array<Rol>=[];
 
   constructor(
     //primero inyectamos la dependencia
     private _usuario_servicio: UsuarioService,
     private _provincia_servicio: ProvinciaService,
-    private _genero_servicio: GeneroService
-
-
+    private _genero_servicio: GeneroService,
+    private _general_servicio: GeneralService
 
   ) {
     this.usuario = new Usuario();
     this.usuario.estado = '1';
 
-
   }
 
   ngOnInit(): void {
+    // para inicializar o cargar los datos
 
     //2 consumir el endponit
     this.provincia();
     this.genero();
+    this.rol();
 
   }
 
@@ -109,12 +109,8 @@ export class RegisterComponent implements OnInit {
     this._provincia_servicio.getProvincias()
     .subscribe((res) => {
 
-      console.log(res);
       if (res.status) {
         this.provincias=res.data;
-        console.log(this.provincias);
-      } else {
-
       }
     }
     );
@@ -124,19 +120,27 @@ export class RegisterComponent implements OnInit {
     this._genero_servicio.getGeneros()
     .subscribe((res) => {
 
-      console.log(res);
       if (res.status) {
         this.generos=res.data;
-        console.log(this.generos);
-      } else {
-
       }
     }
     );
+  }
 
+  rol(){
+    this._general_servicio.getRoles()
+    .subscribe((res)=>{
+
+      if (res.status) {
+        this.roles=res.data;
+      }
+    }
+    )
 
 
   }
+
+
 }
 
 

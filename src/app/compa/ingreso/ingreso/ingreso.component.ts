@@ -10,6 +10,8 @@ export class IngresoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
+
 
 }

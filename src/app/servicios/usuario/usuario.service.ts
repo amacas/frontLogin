@@ -22,7 +22,7 @@ export class UsuarioService {
 
   login( data:any)
   {
-    return this.http.post(this.url + 'login', data);
+    return this.http.post<Respuesta>(this.url + 'login', data);
   }
 
   registro( data:any)

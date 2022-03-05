@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
-import { Router } from '@angular/router';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   public listaUsuarios: Usuario[] = [];
 
   constructor(
-    private _usuarioService: UsuarioService
+    private _usuarioService: UsuarioService,
+    private router:Router
   ) {
     this.usuario = new Usuario();
 
@@ -41,7 +42,19 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.usuario.correo.trim().length > 0 && this.usuario.clave.trim().length > 0) {
       this._usuarioService.login(this.usuario).subscribe(res => {
-        // console.log(res);
+
+        if (res.status) {
+          //this.ususario =res.data;
+          alert(" Acceso correcto");
+          console.log(res);
+          if(res.data.rol_id == 1 ) {//Inggreso por artista
+            this.router.navigateByUrl('ingreso')
+          }else if(res.data.rol_id == 2 ) {//Inggreso por usuario
+            //this.router.navigateByUrl('ingreso')
+          }
+        } else {
+          alert(res.message);
+        }
       })
 
     } else {

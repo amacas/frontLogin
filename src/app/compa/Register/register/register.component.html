@@ -1,46 +1,108 @@
-<div class="register">
-  <div class="custom-form"  >
-    <h1>
-      Register
-    </h1>
-    <input type="text"   placeholder="name" required="required"  [(ngModel)]="usuario.name" />
-    <input type="text"   placeholder="apellido" required="required"  [(ngModel)]="usuario.apellido"   />
-    <input type="text"    placeholder="usuario" required="required" [(ngModel)]="usuario.usuario"     />
-    <!-- <input type="text"   placeholder="gender" required="required"  [(ngModel)]="usuario.gender" /> -->
 
-    <label for="">Gender: </label>
-      <select id="" class="form-control" name="genero_id"  [(ngModel)]="usuario.genero_id">
-        <option value="0">Select Genero</option>
-        <option *ngFor="let p of generos " [value]="p.id">
-          {{ p.genero }}
-        </option>
-      </select>
+<div class="container">
 
-    <input type="text"   placeholder="telefono" required="required"     [(ngModel)]="usuario.telefono"  />
-    <input type="text"    placeholder="email" required="required"     [(ngModel)]="usuario.correo"   />
-    <input type="password"   placeholder="password" required="required"  [(ngModel)]="usuario.clave"     />
-    <input type="text"   placeholder="zip codigo" required="required"   [(ngModel)]="usuario.zipCode"    />
-    <input type="text"   placeholder="ciudad " required="required"  [(ngModel)]="usuario.ciudad"    />
-
-    <label for="">Provincia: </label>
-      <select id="" class="form-control" name="provincia_id" [(ngModel)]="usuario.provincia_id" >
-        <option value="0">Select provincia</option>
-        <option *ngFor="let p of provincias " [value]="p.id">
-          {{ p.provincia }}
-        </option>
-      </select>
-
-    <input type="text"   placeholder="direccion" required="required"  [(ngModel)]="usuario.direccion"     />
-    <button type="button" class="btn btn-registro btn-primary" (click)="registro()">
-      Register
-    </button>
+  <div class="row">
+    <div class="atras"  >
+      <h1>
+        <a routerLink=""> Atras </a>
+      </h1>
+    </div>
   </div>
-</div>
 
-<div class="atras"  >
-  <h1>
-    <a routerLink=""> Atras </a>
-  </h1>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="register">
+        <div class="custom-form">
+          <div class="row margin-auto">
+            <div class="col-12">
+              <h1 class="text-center">
+                Register
+              </h1>
+            </div>
+            <hr>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <input type="text" class="form-control" placeholder="name" required="required"  [(ngModel)]="usuario.name" />
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <input type="text"   placeholder="apellido" required="required"  [(ngModel)]="usuario.apellido"   />
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <input type="text"    placeholder="usuario" required="required" [(ngModel)]="usuario.usuario"     />
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <label for="">Gender: </label>
+                <select id="" class="form-control" name="genero_id"  [(ngModel)]="usuario.genero_id">
+                  <option value="0">Select Genero</option>
+                  <option *ngFor="let p of generos " [value]="p.id">
+                    {{ p.genero }}
+                  </option>
+                </select>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <input type="text"   placeholder="telefono" required="required"     [(ngModel)]="usuario.telefono"  />
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <input type="text"    placeholder="email" required="required"     [(ngModel)]="usuario.correo"   />
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <input type="password"   placeholder="password" required="required"  [(ngModel)]="usuario.clave"     />
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <input type="text"   placeholder="zip codigo" required="required"   [(ngModel)]="usuario.zipCode"    />
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <input type="text"   placeholder="ciudad " required="required"  [(ngModel)]="usuario.ciudad"    />
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <label for="">Provincia: </label>
+                <select id="" class="form-control" name="provincia_id" [(ngModel)]="usuario.provincia_id" >
+                  <option value="0">Select provincia</option>
+                  <option *ngFor="let p of provincias " [value]="p.id">
+                    {{ p.provincia }}
+                  </option>
+                </select>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <label for="">Roles: </label>
+              <select id="" class="form-control" name="rol_id"  [(ngModel)]="usuario.rol_id">
+                <option value="0">Select Roles</option>
+                <option *ngFor="let p of roles " [value]="p.id">
+                  <!-- es el array vinee de la base de datos -->
+                  {{ p.detalle }}
+                   <!-- detalle es el item de cada rol -->
+                </option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 form-group">
+              <input type="text"  class="form-control" placeholder="direccion" required="required"  [(ngModel)]="usuario.direccion"     />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-4 col-lg-3">
+              <button type="button" class="btn btn-registro btn-primary" (click)="registro()">
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 
