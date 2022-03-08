@@ -65,8 +65,8 @@
 
             <div class="col-12 col-md-6 col-lg-6 form-group">
               <label for="">Provincia: </label>
-                <select id="" class="form-control" name="provincia_id" [(ngModel)]="usuario.provincia_id" >
-                  <option value="0">Select provincia</option>
+                <select id="" class="form-control"  name="provincia_id" [(ngModel)]="usuario.provincia_id" >
+                  <option value="0" placeholder="Provincia">Select provincia</option>
                   <option *ngFor="let p of provincias " [value]="p.id">
                     {{ p.provincia }}
                   </option>

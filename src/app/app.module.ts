@@ -7,13 +7,17 @@ import { RegisterComponent } from './compa/Register/register/register.component'
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { IngresoComponent } from './compa/ingreso/ingreso/ingreso.component';
+import { UsuarioComponent } from './compa/Usuario/usuario/usuario.component';
+import { ArtistaComponent } from './compa/Artista/artista/artista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    IngresoComponent
+    IngresoComponent,
+    UsuarioComponent,
+    ArtistaComponent
   ],
   imports: [
     BrowserModule,
