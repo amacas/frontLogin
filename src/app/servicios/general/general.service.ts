@@ -17,6 +17,9 @@ export class GeneralService {
   getRoles() {
     return this.http.get<Respuesta>(this.url + 'rol');
   }
+  getYears() {
+    return this.http.get<Respuesta>(this.url + 'year');
+  }
 
 
 }
