@@ -11,7 +11,7 @@ const routes: Routes = [
   //aqui se agrega las instancias
 
   { path: "", component: LoginComponent }, //login
-  { path: "register", component: RegisterComponent }, //reggister
+  { path: "register", component: RegisterComponent }, //register
   { path: "ingreso", component: IngresoComponent }, //ingreso
   { path: "usuario", component: UsuarioComponent },//ingreso usuario
   { path: "artista", component: ArtistaComponent }//ingreso usuario
