@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
           alert(" Acceso correcto");
           console.log(res);
           if(res.data.rol_id == 1 ) {//Ingreso por artista
-            this.router.navigateByUrl('artista')
+            this.router.navigateByUrl('ingreso')
           }else if(res.data.rol_id == 2 ) {//Ingreso por usuario
             this.router.navigateByUrl('usuario')
           }

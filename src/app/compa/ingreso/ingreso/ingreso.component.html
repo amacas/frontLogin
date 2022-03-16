@@ -1,15 +1,137 @@
-<h1>ingreso Artista!</h1>
-<h1>
-  INGRESO EXITOSO
-</h1>
+<div class= "container">
+  <div class="row col-12 col-md-8">
+    <div class="row">
+      <div class="div naw">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand">Artista</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Music <span class="sr-only">(Artista)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Album</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link disabled" href="">Salir</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Genero</th>
+        <th scope="col">Año</th>
+        <th scope="col">Duracion</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngfor="let cancion of canciones">
+        <td>  {{cancion.id}}</td>
+        <td>  {{cancion.time}</td>
+        <td> {{cancion.sizeFile}}</td>
+        <td> {{cancion.name_song}}</td>
+        <td> {{cancion.name_album}}</td>
+        <td> {{cancion.year_id}}</td>
+
+      </tr>
+    </tbody>
+    </table>
 
 
 
+<div class="row">
+  <div class="col-8 offset-2">
+    <div class="register">
+      <div class="custom-form">
+        <div class="row margin-auto">
+          <div class="col-12">
+            <h1 class="text-center">
+              Register
+            </h1>
+          </div>
+          <hr>
 
-<div class="atras"  >
-  <h1>
-    <a routerLink=""> Atras </a>
-  </h1>
+          <div class="col-12 col-md-6 col-lg-6 form-group">
+            <input type="text" class="form-control" placeholder="time" required="required"  [(ngModel)]="cancion.time"  />
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-6 form-group">
+            <input type="text"   placeholder="nombre de Cancion" required="required"   [(ngModel)]="cancion.name_song"  />
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-6 form-group">
+            <input type="text"    placeholder="tamaño del archivo" required="required"    [(ngModel)]="cancion.sizeFile" />
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-6 form-group">
+            <label for="">Years: </label>
+            <select id="" class="form-control" name="year_id"  [(ngModel)]="cancion.year_id">
+              <option value="0">Select Year</option>
+              <option *ngFor="let p of years " [value]="p.id">
+                <!-- es el array viene de la base de datos -->
+                {{ p.year }}
+                 <!-- detalle es el item de cada rol -->
+              </option>
+            </select>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-6 form-group">
+            <label for="">Gener Song: </label>
+            <select id="" class="form-control" name="generSong_id"  [(ngModel)]="cancion.generSong_id">
+              <option value="0">Select Gener Song</option>
+              <option *ngFor="let p of geners_songs " [value]="p.id">
+                <!-- es el array vinee de la base de datos -->
+                {{ p.generSong }}
+                 <!-- detalle es el item de cada rol -->
+              </option>
+            </select>
+          </div>
+
+
+          <div class="col-12 col-md-6 col-lg-6 form-group">
+            <label for="">Album: </label>
+            <select id="" class="form-control" name="album_id"  [(ngModel)]="cancion.album_id">
+              <option value="0">Select Album</option>
+              <option *ngFor="let p of albums " [value]="p.id">
+                <!-- es el array viene de la base de datos -->
+                {{ p.name_album }}
+                 <!-- detalle es el item de cada rol -->
+              </option>
+            </select>
+          </div>
+
+
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4">
+            <button type="button" class="btn btn-registro btn-primary" (click)="registerSong()">
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
-
-

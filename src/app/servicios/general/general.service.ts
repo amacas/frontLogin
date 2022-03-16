@@ -24,6 +24,9 @@ export class GeneralService {
   getGenerSongs() {
     return this.http.get<Respuesta>(this.url + 'generSong');
   }
+  getAlbumSongs() {
+    return this.http.get<Respuesta>(this.url + 'name_album');
+  }
 
 
 }

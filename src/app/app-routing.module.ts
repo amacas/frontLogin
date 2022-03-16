@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: "usuario", component: UsuarioComponent },//ingreso usuario
   { path: "artista", component: ArtistaComponent }//ingreso usuario
 
-
 ];
 
 @NgModule({
