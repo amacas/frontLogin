@@ -36,7 +36,7 @@
 
 
   </div>
-  <table class="table">
+   <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">ID</th>
@@ -44,17 +44,19 @@
         <th scope="col">Genero</th>
         <th scope="col">Año</th>
         <th scope="col">Duracion</th>
+        <th scope="col">Tamaño</th>
+        <th scope="col">Album</th>
         </tr>
     </thead>
     <tbody>
-      <tr *ngfor="let cancion of canciones">
+      <tr *ngFor="let cancion of canciones">
         <td>  {{cancion.id}}</td>
-        <td>  {{cancion.time}</td>
-        <td> {{cancion.sizeFile}}</td>
         <td> {{cancion.name_song}}</td>
-        <td> {{cancion.name_album}}</td>
+        <td> {{cancion.generSong_id}}</td>
         <td> {{cancion.year_id}}</td>
-
+        <td>  {{cancion.time}}</td>
+        <td> {{cancion.sizeFile}}</td>
+        <td> {{cancion.album_id}</td>
       </tr>
     </tbody>
     </table>

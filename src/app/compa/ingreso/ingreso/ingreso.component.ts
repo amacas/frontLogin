@@ -18,6 +18,8 @@ export class IngresoComponent implements OnInit {
   public years:Array<Year>=[];
   public geners_songs:Array<GenerSong>=[];
   public albums:Array<Album>=[];
+  private sesion:any;
+  public canciones:Cancion[]=[];
 
   constructor(
     private _general_servicio: GeneralService,
@@ -26,6 +28,10 @@ export class IngresoComponent implements OnInit {
   ) {
     this.cancion =new Cancion();
     this.cancion.estado = '1';
+    const u=localStorage.getItem('sesion')
+    if(u){
+      this.sesion=JSON.parse(u);
+    };
 
   }
 
@@ -48,6 +54,8 @@ export class IngresoComponent implements OnInit {
       if (this.cancion.sizeFile == 0) {
         alert('Ingrese el tamaño de la cancion: ');
       } else {
+        this.cancion.usuario_id=this.sesion.id;
+        //console.log(this.sesion);
         this._cancion_servicio.registroSong(this.cancion)
           .subscribe((res: Respuesta) => {
 
@@ -64,12 +72,13 @@ export class IngresoComponent implements OnInit {
 
   clear() {
 
-    this.cancion.name_song = '';
-    this.cancion.year_id='';
-    this.cancion.album_id='';
     this.cancion.generSong_id='';
-    this.cancion.sizeFile=0;
+    this.cancion.album_id='';
+    this.cancion.year_id='';
     this.cancion.time='';
+    this.cancion.name_song = '';
+    this.cancion.sizeFile=0;
+    this.cancion.usuario_id='';
 
   }
 

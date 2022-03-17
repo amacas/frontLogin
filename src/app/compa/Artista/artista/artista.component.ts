@@ -39,7 +39,6 @@ export class ArtistaComponent implements OnInit {
   clear() {
 
     this.cancion.name_song = '';
-    this.cancion.name_album = '';
     this.cancion.year_id='';
     this.cancion.generSong_id='';
 

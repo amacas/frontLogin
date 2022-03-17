@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
         if (res.status) {
           this.usuario =res.data;
           alert(" Acceso correcto");
+          localStorage.setItem('sesion',JSON.stringify(this.usuario));
           console.log(res);
           if(res.data.rol_id == 1 ) {//Ingreso por artista
             this.router.navigateByUrl('ingreso')
