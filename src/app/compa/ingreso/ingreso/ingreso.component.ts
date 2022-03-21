@@ -20,6 +20,7 @@ export class IngresoComponent implements OnInit {
   public albums:Array<Album>=[];
   private sesion:any;
   public canciones:Cancion[]=[];
+  public id:string='';
 
   constructor(
     private _general_servicio: GeneralService,
@@ -33,13 +34,22 @@ export class IngresoComponent implements OnInit {
       this.sesion=JSON.parse(u);
     };
 
+    this.getid();
   }
 
   ngOnInit(): void {
     this.year();
     this.generSong();
     this.name_album();
+    this.listarSong();
+  }
 
+  getid(){
+    const data = localStorage.getItem('sesion');
+    if(data != null){
+      const sesion = JSON.parse(data);
+      this.id=sesion.id;
+    }
   }
 
   registerSong() {
@@ -61,6 +71,7 @@ export class IngresoComponent implements OnInit {
 
             if (res.status) {
               this.clear();
+              this.listarSong();
               alert(res.message);
             } else {
               alert(res.message);
@@ -113,5 +124,19 @@ export class IngresoComponent implements OnInit {
     )
   }
 
+  listarSong(){
+    this._cancion_servicio.listarSong(this.id,1)
+    .subscribe(res => {
+
+      if (res.status) {
+        this.canciones=res.data;
+        console.log(this.canciones);
+      }
+    }
+    )
+  }
+
+  eliminarSong(){
+  }
 
 }

@@ -33,9 +33,15 @@
           </div>
         </nav>
       </div>
-
-
   </div>
+
+  <span class="h3">Listado de Canciones</span>
+            <!-- <button class="btn btn-dark btn-lg float-right" routerLink="/create-empleado">Agregar</button>
+            <h5 style="margin-top: 30px;" *ngIf="canciones.usuario_id == 0">No hay datos para mostrar</h5>
+            <table *ngIf="cancion.length > 0" class="table table-striped mt-5">
+                <thead> -->
+
+
    <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -48,16 +54,22 @@
         <th scope="col">Album</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="canciones.length>0 ">
       <tr *ngFor="let cancion of canciones">
-        <td>  {{cancion.id}}</td>
+        <td> {{cancion.id}}</td>
         <td> {{cancion.name_song}}</td>
-        <td> {{cancion.generSong_id}}</td>
-        <td> {{cancion.year_id}}</td>
-        <td>  {{cancion.time}}</td>
+        <td> {{cancion?.gener_song?.generSong}}</td>
+        <td> {{cancion?.year?.year}}</td>
+        <td> {{cancion.time}}</td>
         <td> {{cancion.sizeFile}}</td>
-        <td> {{cancion.album_id}</td>
+        <td> {{cancion?.album?.name_album}}</td>
+
+        <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/editEmpleado/', cancion.id]"></i>
+        <i (click)="eliminarSong()" class="fas fa-trash-alt fa-lg text-danger"></i>
       </tr>
+    </tbody>
+    <tbody *ngIf="canciones.length == 0">
+      <tr>No hay data</tr>
     </tbody>
     </table>
 

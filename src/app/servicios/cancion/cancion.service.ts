@@ -15,17 +15,15 @@ export class CancionService {
     private http: HttpClient
   ) { }
 
-
   registroSong( data:any)
   {
     return this.http.post<Respuesta>(this.url + 'musica/create', data);
   }
+
   listarSong( usuario_id:any, estado:any)
   {
     const link=this.url + 'musica/listar/'+ usuario_id +'/'+estado;
     return this.http.get<Respuesta>(link);
   }
-
-
 
 }
