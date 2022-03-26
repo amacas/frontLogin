@@ -33,9 +33,46 @@
           </div>
         </nav>
       </div>
-
-
   </div>
+
+  <span class="h3">Listado de Canciones</span>
+            <!-- <button class="btn btn-dark btn-lg float-right" routerLink="/create-empleado">Agregar</button>
+            <h5 style="margin-top: 30px;" *ngIf="canciones.usuario_id == 0">No hay datos para mostrar</h5>
+            <table *ngIf="cancion.length > 0" class="table table-striped mt-5">
+                <thead> -->
+
+
+   <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Genero</th>
+        <th scope="col">Año</th>
+        <th scope="col">Duracion</th>
+        <th scope="col">Tamaño</th>
+        <th scope="col">Album</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="canciones.length>0 ">
+      <tr *ngFor="let cancion of canciones">
+        <td> {{cancion.id}}</td>
+        <td> {{cancion.name_song}}</td>
+        <td> {{cancion?.gener_song?.generSong}}</td>
+        <td> {{cancion?.year?.year}}</td>
+        <td> {{cancion.time}}</td>
+        <td> {{cancion.sizeFile}}</td>
+        <td> {{cancion?.album?.name_album}}</td>
+
+        <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/editEmpleado/', cancion.id]"></i>
+        <i (click)="eliminarSong()" class="fas fa-trash-alt fa-lg text-danger"></i>
+      </tr>
+    </tbody>
+    <tbody *ngIf="canciones.length == 0">
+      <tr>No hay data</tr>
+    </tbody>
+    </table>
+
 
 
 <div class="row">
@@ -87,12 +124,22 @@
           </div>
 
 
-
+          <div class="col-12 col-md-6 col-lg-6 form-group">
+            <label for="">Album: </label>
+            <select id="" class="form-control" name="album_id"  [(ngModel)]="cancion.album_id">
+              <option value="0">Select Album</option>
+              <option *ngFor="let p of albums " [value]="p.id">
+                <!-- es el array viene de la base de datos -->
+                {{ p.name_album }}
+                 <!-- detalle es el item de cada rol -->
+              </option>
+            </select>
+          </div>
 
 
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4">
-            <button type="button" class="btn btn-registro btn-primary" >
+            <button type="button" class="btn btn-registro btn-primary" (click)="registerSong()">
               Register
             </button>
           </div>
